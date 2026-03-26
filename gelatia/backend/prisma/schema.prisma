@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  OWNER
+  MANAGER
+  CASHIER
+}
+
+model Business {
+  id        Int      @id @default(autoincrement())
+  name      String
+  branches  Branch[]
+  flavors   Flavor[]
+  users     User[]
+  createdAt DateTime @default(now())
+}
+
+model Branch {
+  id         Int           @id @default(autoincrement())
+  name       String
+  business   Business      @relation(fields: [businessId], references: [id])
+  businessId Int
+  flavors    BranchFlavor[]
+  createdAt  DateTime      @default(now())
+}
+
+model Flavor {
+  id        Int           @id @default(autoincrement())
+  name      String
+  business   Business      @relation(fields: [businessId], references: [id])
+  businessId Int
+  branches  BranchFlavor[]
+  createdAt DateTime      @default(now())
+
+  @@unique([businessId, name])
+}
+
+model BranchFlavor {
+  id         Int      @id @default(autoincrement())
+  branch     Branch   @relation(fields: [branchId], references: [id])
+  branchId   Int
+  flavor     Flavor   @relation(fields: [flavorId], references: [id])
+  flavorId   Int
+  stockGrams Int
+  isActive   Boolean  @default(true)
+
+  @@unique([branchId, flavorId])
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(CASHIER)
+  business     Business @relation(fields: [businessId], references: [id])
+  businessId   Int
+  createdAt    DateTime @default(now())
+}
