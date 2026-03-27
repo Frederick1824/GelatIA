@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "engines": {
+<<<<<<< HEAD
     "node": ">=22.12.0"
+=======
+    "node": "22.x"
+>>>>>>> 8c44bce (Fix backend deploy config for Railway)
   },
   "scripts": {
     "dev": "nodemon src/server.js",
