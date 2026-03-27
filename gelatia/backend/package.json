@@ -4,11 +4,37 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": ">=22.12.0"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "postinstall": "prisma generate"
+    "postinstall": "npx prisma generate",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch",
+    "test:prepare-db": "node tests/setup/globalSetup.js",
+    "prisma:validate": "npx prisma validate",
+    "prisma:generate": "npx prisma generate",
+    "db:migrate": "npx prisma migrate dev",
+    "db:deploy": "npx prisma migrate deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.5.0",
+    "@prisma/client": "^7.5.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.20.0",
+    "prisma": "^7.5.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.1.4"
   }
 }
