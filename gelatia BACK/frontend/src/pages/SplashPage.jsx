@@ -21,7 +21,7 @@ export function SplashPage() {
         <div className="mx-auto rounded-[2rem] border border-white/10 bg-white/[0.04] px-8 py-7 shadow-panel">
           <BrandMark brand="egyen" variant="full" className="justify-center" imageClassName="h-16 w-16" />
         </div>
-        <h1 className="mt-8 text-4xl font-semibold text-slate-50">Entrando a GelatIA</h1>
+        <h1 className="mt-8 text-4xl font-semibold text-slate-50">Entrando a StockIA</h1>
         <p className="mt-4 text-sm text-slate-400">
           Preparando sesion, contexto y acceso al producto.
         </p>

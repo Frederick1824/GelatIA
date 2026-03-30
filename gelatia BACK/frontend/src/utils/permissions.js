@@ -4,6 +4,7 @@ export function getRoleLabel(role) {
   if (role === ROLES.OWNER) return "Owner";
   if (role === ROLES.MANAGER) return "Manager";
   if (role === ROLES.CASHIER) return "Caja";
+  if (role === ROLES.WAITER) return "Mozo";
   return role;
 }
 

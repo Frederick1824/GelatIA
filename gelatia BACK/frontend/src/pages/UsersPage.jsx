@@ -107,7 +107,7 @@ export function UsersPage() {
 
   const roleOptions = useMemo(() => {
     if (user?.role === ROLES.OWNER) {
-      return [ROLES.CASHIER, ROLES.MANAGER];
+      return [ROLES.CASHIER, ROLES.WAITER, ROLES.MANAGER];
     }
 
     return [ROLES.CASHIER];

@@ -27,7 +27,7 @@ function assertCanCreateRole(actorRole, targetRole) {
     return;
   }
 
-  if (actorRole === ROLES.MANAGER && targetRole === ROLES.CASHIER) {
+  if (actorRole === ROLES.MANAGER && [ROLES.CASHIER, ROLES.WAITER].includes(targetRole)) {
     return;
   }
 

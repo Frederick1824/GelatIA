@@ -10,6 +10,7 @@ enum Role {
   OWNER
   MANAGER
   CASHIER
+  WAITER
 }
 
 model Business {
